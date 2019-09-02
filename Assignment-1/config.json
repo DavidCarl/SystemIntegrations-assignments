@@ -1,0 +1,6 @@
+{
+    "server_ip":"127.0.0.1", 
+    "server_port":"7878", 
+    "start_money":"500",
+    "currency":"USD"
+}
