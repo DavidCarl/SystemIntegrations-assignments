@@ -3,7 +3,7 @@ import sys
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = ('127.0.0.1', 7877)
+server_address = ('127.0.0.1', 7878)
 
 def main():
     running = True
@@ -18,13 +18,13 @@ def main():
 
             connectRunning = True
             while connectRunning:
-                action = input('What do you want to do? Type \'help\' for help!\n')
+                action = input('What do you want to do? Type \'help\' for help!\n > ')
                 if action.lower() == 'help':
                     print('Help text!')            
                     print('> create_account - to get command help')            
-                    print('> check_balance - to get command help')
-                    print('> withdraw <amount> - to get command help')
-                    print('> deposit <amount> - to get command help')
+                    print('> check_balance - to get a status on your balance')
+                    print('> withdraw <amount> - to withdraw money from the account')
+                    print('> deposit <amount> - to deposit money to the account')
                     print('> disconnect - to disconnect from the server')
                 elif action.lower() == 'disconnect':
                     connectRunning = False
@@ -39,8 +39,8 @@ def main():
                     pass
             sock.close()
         elif command.lower() == 'settings':
-            server_address[0] = input('Input server ip!\n > ')
-            server_address[1] = int(input('Input server port!\n > '))
+            print('Yet to be implemented!')
+            pass
         elif command.lower() == 'help':
             print('Help text!')
             print('> connect - to get command help')            
