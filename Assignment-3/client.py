@@ -1,10 +1,7 @@
-import SOAPpy
 import requests
 import json
+import zeep
 
-
-# server = SOAPpy.SOAPProxy("http://localhost:8888/")
-# print(server.hello())
 
 def api():
     res = requests.get('http://localhost:5000').content.decode('utf-8')
@@ -17,4 +14,17 @@ def post_api():
     # res = json.loads(res)
     print(res)
 
-post_api()
+def soap():
+    wsdl = 'http://localhost:8080/service/calculator.wsdl'
+    client = zeep.Client(wsdl)
+    # with client.settings(raw_response=True):
+    print(client.service.Calculator(11.2, '*', 2))
+
+# def soap():
+#     wsdl = 'http://localhost:8080/service/calculator.wsdl'
+#     client = zeep.Client(wsdl)
+#     with client.settings(raw_response=True):
+#         print(client.service.StudentDetails('Sajal','11').content)
+
+# post_api()
+soap()

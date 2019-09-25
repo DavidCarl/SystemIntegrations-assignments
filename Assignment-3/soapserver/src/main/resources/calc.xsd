@@ -1,0 +1,27 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="https://www.howtodoinjava.com/xml/school"
+           targetNamespace="https://www.howtodoinjava.com/xml/school" elementFormDefault="qualified">
+    <xs:element name="CalculatorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="n1" type="xs:double"/>
+                <xs:element name="operator" type="xs:string"/>
+                <xs:element name="n2" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CalculatorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MathResult" type="tns:MathResult"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="MathResult">
+        <xs:sequence>
+            <xs:element name="n1" type="xs:double"/>
+            <xs:element name="operator" type="xs:string"/>
+            <xs:element name="n2" type="xs:double"/>
+            <xs:element name="result" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

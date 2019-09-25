@@ -1,4 +1,3 @@
 zeep
-SOAPpy-py3
 flask
 flask_restful
