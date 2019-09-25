@@ -11,8 +11,23 @@ class HelloWorld(Resource):
 
     def post(self):
         json_data = request.get_json(force=True)
-        print(json_data)
-        return {'MathResult':str((int(json_data['key1']) + int(json_data['key2']))) }
+        n1 = float(json_data['key1'])
+        n2 = float(json_data['key2'])
+        operator = json_data['operator']
+        
+        if operator == '+':
+            return {'MathResult':str(n1 + n2) }
+        elif operator == '-':
+            return {'MathResult':str(n1 - n2) }
+        elif operator == '*':
+            return {'MathResult':str(n1 * n2) }
+        elif operator == '/':
+            if n2 != 0.0:
+                return {'MathResult':str(n1 / n2) }
+            else:
+                return {'MathResult':'Illegal n2 for a divide!' }
+        else:
+            return {'MathResult':'Invaild operator' }
 
 api.add_resource(HelloWorld, '/')
 
