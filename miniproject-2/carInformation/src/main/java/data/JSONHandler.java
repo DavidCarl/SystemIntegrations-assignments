@@ -11,11 +11,6 @@ import java.util.List;
 
 public class JSONHandler {
 
-    public static void main(String[] args) {
-        JSONHandler j = new JSONHandler();
-    }
-
-    @SuppressWarnings("unchecked")
     public void readJson(List<Car> cars) {
         JSONParser parser = new JSONParser();
         try {
@@ -27,12 +22,6 @@ public class JSONHandler {
                 JSONObject next = iterator.next();
                 System.out.println(next);
                 cars.add(new Car((String)next.get("brand"),(String)next.get("model"),(String)next.get("description")));
-                /*for (Car car : cars) {
-                    if (car.getBrand().equals(next.get("brand"))) {
-                        car.setDescription((String) next.get("description"));
-                        car.setModel((String) next.get("model"));
-                    }
-                }*/
             }
         } catch (Exception e) {
             e.printStackTrace();
