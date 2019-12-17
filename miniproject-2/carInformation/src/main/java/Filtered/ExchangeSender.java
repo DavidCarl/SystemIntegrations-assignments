@@ -44,7 +44,7 @@ public class ExchangeSender {
 
     private static void sendMessage(Channel channel, String exchange, String key, String message) throws IOException {
         channel.basicPublish(exchange, key, null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
+        //System.out.println(" [x] Sent '" + message + "'");
     }
 
 }
