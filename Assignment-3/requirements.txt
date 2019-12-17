@@ -1,5 +1,4 @@
 zeep
 flask
 flask_restful
-json
 requests
