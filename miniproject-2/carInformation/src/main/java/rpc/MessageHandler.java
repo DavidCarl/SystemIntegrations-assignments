@@ -1,16 +1,20 @@
 package rpc;
 
+import Filtered.ExchangeSender;
 import entities.Car;
+import publishSubscribe.EmitLog;
 
 import java.util.List;
 
 public class MessageHandler {
-    private static String categories(List<Car> cars) {
+    static EmitLog el = new EmitLog();
+    static ExchangeSender es = new ExchangeSender();
 
+    private static String categories(List<Car> cars) {
+        el.sendLog("Getting car brands");
         String message = "";
         for (Car car : cars) {
             if (!message.contains(car.getBrand())) {
-
                 message += car.getBrand() + "\n";
             }
 
@@ -18,10 +22,11 @@ public class MessageHandler {
         return message;
     }
 
-    private static String pickCarBrand(String category, List<Car> cars) {
+    private static String pickCarBrand(String model, List<Car> cars) {
+        el.sendLog("Picking car brand " + model);
         String carList = "";
         for (Car car : cars) {
-            if (car.getBrand().equals(category)) {
+            if (car.getBrand().equals(model)) {
                 carList += car.getModel() + "\n";
             }
         }
@@ -32,6 +37,8 @@ public class MessageHandler {
     }
 
     private static String chooseModel(String carChoice, List<Car> cars) {
+        es.message("employ_app", "A customer looked on " + carChoice);
+        el.sendLog("Choosing brand model " + carChoice);
         String carMessage = "";
         for (Car car : cars) {
             if (car.getModel().equals(carChoice)) {

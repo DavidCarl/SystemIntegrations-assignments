@@ -2,6 +2,7 @@ package rpc;
 
 import com.rabbitmq.client.*;
 import data.CSVHandler;
+import data.JSONHandler;
 import entities.Car;
 
 import java.nio.charset.StandardCharsets;
@@ -18,8 +19,9 @@ public class Replier {
         factory.setPassword("myPassword");
         List<Car> cars = new ArrayList<>();
         CSVHandler c = new CSVHandler();
+        JSONHandler j = new JSONHandler();
         c.readCsv(cars);
-        cars.remove(0);
+        //j.readJson(cars);
 
         try (Connection connection = factory.newConnection();
             Channel channel = connection.createChannel()) {
