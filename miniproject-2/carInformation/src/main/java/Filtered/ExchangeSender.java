@@ -22,7 +22,7 @@ public class ExchangeSender {
     public static void message(String filter, String message) {
         try {
             ConnectionFactory factory = new ConnectionFactory();
-            factory.setHost("192.168.0.124");
+            factory.setHost("localhost");
             factory.setUsername("root");
             factory.setPassword("myPassword");
             Connection connection = factory.newConnection();

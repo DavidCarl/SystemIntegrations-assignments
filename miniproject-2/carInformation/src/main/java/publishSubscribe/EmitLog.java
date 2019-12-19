@@ -13,7 +13,7 @@ public class EmitLog {
 
     public void sendLog(String logMessage){
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("192.168.0.124");
+        factory.setHost("localhost");
         factory.setUsername("root");
         factory.setPassword("myPassword");
         try (Connection connection = factory.newConnection();

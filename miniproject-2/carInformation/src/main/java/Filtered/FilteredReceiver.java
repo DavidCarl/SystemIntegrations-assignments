@@ -20,7 +20,7 @@ public class FilteredReceiver {
     public static void main(String[] argv) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
 
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("192.168.0.124");
+        factory.setHost("localhost");
         factory.setUsername("root");
         factory.setPassword("myPassword");
         Connection connection = factory.newConnection();

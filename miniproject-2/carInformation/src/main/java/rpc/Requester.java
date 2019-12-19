@@ -21,7 +21,7 @@ public class Requester implements AutoCloseable {
 
     public Requester() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("192.168.0.124");
+        factory.setHost("localhost");
         factory.setUsername("root");
         factory.setPassword("myPassword");
         connection = factory.newConnection();
